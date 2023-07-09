@@ -62,3 +62,5 @@ count+=1
         elif 55 <= count <= 66:
             client = Client(api_key[4], api_secret[4])
 buildbin.py balancecheck.py I run at same time to check if ii have real income in genuraly and not just in usdt.
+
+EVERYTHING UNDER YOUR OWN RISK! GOOD LUCK, IF YOU HAVE SOME ADVISE OPEN ISSUE AND SHARETHE BETTER WAY OF SCRIPT.
