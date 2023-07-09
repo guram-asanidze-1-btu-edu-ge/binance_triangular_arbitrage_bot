@@ -17,7 +17,6 @@ def balance():
     usdt_balance = 0.0
     other_currencies_balance = 0.0
 
-    excluded_currencies = ['SOL', 'XRP', 'DOGE', 'SHIB']
 
     for balance in balances:
         asset = balance['asset']
@@ -30,8 +29,7 @@ def balance():
                     ticker_price = client.get_symbol_ticker(symbol=trading_pair)
                     asset_price = float(ticker_price['price'])
                     usdt_equivalent = free_balance * asset_price
-                    if asset not in excluded_currencies:
-                        other_currencies_balance += usdt_equivalent
+                    other_currencies_balance += usdt_equivalent
                 except Exception as e:
                     if trading_pair == 'TRYUSDT' or trading_pair == 'BRLUSDT':
                         print(f'Failed to retrieve ticker price for {trading_pair}: {e}')
