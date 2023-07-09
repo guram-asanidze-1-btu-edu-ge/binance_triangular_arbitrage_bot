@@ -127,10 +127,21 @@ def trengular():
             elif digit == '1':
                 count += 1
                 break
+        if min_qty== float(1e-05):
+            count=1e-05
+        elif min_qty== float(1e-06):
+            count=1e-06
+        elif min_qty== float(1e-07):
+            count=1e-07
+
+
 
         multipliers = {
+            1e-07:10000000,
             7: 10000000,
+            1e-06: 1000000,
             6: 1000000,
+            1e-05 : 100000,
             5: 100000,
             4: 10000,
             3: 1000,
@@ -139,7 +150,6 @@ def trengular():
             0: 1
         }
         return multipliers[count]
-
 
 
     for pair in trading_pairs:
