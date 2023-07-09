@@ -58,6 +58,6 @@ elif 55 <= count <= 66:
     client = Client(api_key[4], api_secret[4])
 ```
 
-Run `buildbin.py` and `balancecheck.py` simultaneously to check if you have real income in general and not just in USDT.
+Run `buildbin.py` and `balancecheck.py` simultaneously to check if you have real income in general and not just in USDT. ALSO better if you will have BNB on your account it will take less comitions from order.
 
 **IMPORTANT:** Use this bot at your own risk. Good luck! If you have any suggestions or improvements, please open an issue and share your ideas for a better implementation of the script.
