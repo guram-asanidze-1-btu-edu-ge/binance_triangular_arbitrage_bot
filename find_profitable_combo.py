@@ -9,9 +9,7 @@ api_key=keys.api_key1
 api_secret=keys.secret_key1
 def calculate_profit(pair, client):
     def calcul(symbol):
-        # Specify the trading pair symbol
         symbol_info = client.get_symbol_info(symbol)
-
         # Find the 'LOT_SIZE' filter and extract the minQty value
         min_qty_filter = next(filter(lambda f: f['filterType'] == 'LOT_SIZE', symbol_info['filters']), None)
         if min_qty_filter:
@@ -26,14 +24,23 @@ def calculate_profit(pair, client):
             if digit == '0':
                 count += 1
             elif digit == '.':
-                count = 0  # Reset count if decimal point is encountered
+                count = 0
             elif digit == '1':
                 count += 1
                 break
+        if min_qty == float(1e-05):
+            count = 1e-05
+        elif min_qty == float(1e-06):
+            count = 1e-06
+        elif min_qty == float(1e-07):
+            count = 1e-07
 
         multipliers = {
+            1e-07: 10000000,
             7: 10000000,
+            1e-06: 1000000,
             6: 1000000,
+            1e-05: 100000,
             5: 100000,
             4: 10000,
             3: 1000,
@@ -106,9 +113,7 @@ def calculate_profit(pair, client):
 
 def trade():
     def calcul(symbol):
-        # Specify the trading pair symbol
         symbol_info = client.get_symbol_info(symbol)
-
         # Find the 'LOT_SIZE' filter and extract the minQty value
         min_qty_filter = next(filter(lambda f: f['filterType'] == 'LOT_SIZE', symbol_info['filters']), None)
         if min_qty_filter:
@@ -123,14 +128,23 @@ def trade():
             if digit == '0':
                 count += 1
             elif digit == '.':
-                count = 0  # Reset count if decimal point is encountered
+                count = 0
             elif digit == '1':
                 count += 1
                 break
+        if min_qty == float(1e-05):
+            count = 1e-05
+        elif min_qty == float(1e-06):
+            count = 1e-06
+        elif min_qty == float(1e-07):
+            count = 1e-07
 
         multipliers = {
+            1e-07: 10000000,
             7: 10000000,
+            1e-06: 1000000,
             6: 1000000,
+            1e-05: 100000,
             5: 100000,
             4: 10000,
             3: 1000,
@@ -155,7 +169,7 @@ def trade():
     x = list(set(curs))
 
     def generate_currency_legs(currency1, currency2):
-        leg1 = f'USDTTRY'  #GBP
+        leg1 = f'USDTTRY'
         leg2 = f'{currency2}TRY'
         leg3 = f'{currency2}USDT'
         return {
