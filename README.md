@@ -2,6 +2,9 @@
 
 The Binance Triangular Arbitrage Bot is a tool for efficient trading on the Binance platform. It enables searching for profitable pairs, opening market positions, and checking balances in USDT.
 
+## Referal link with Bonuses up to 200$ on rebate trade commission.
+https://www.binance.com/ru/activity/referral-entry/CPA?ref=CPA_006LFCFOXC
+
 ## Generating an API Key for Binance
 
 To generate an API key for Binance, follow these steps:
